@@ -2,7 +2,7 @@
   <div class="app">
     <div class="container">
       <div class="mainBlock">
-        <task-form></task-form>
+        <task-form @create="createTask"></task-form>
         <div class="wrapper">
           <task-list :tasks="tasks"></task-list>
         </div>
@@ -20,18 +20,13 @@
     },
     data() {
       return {
-        tasks: [{ id: 1, describtion: 1 }],
-        describtion: "",
+        tasks: [],
       };
     },
     methods: {
-      createTask() {
-        const newTask = {
-          id: Date.now(),
-          describtion: this.describtion,
-        };
-        this.tasks.push(newTask);
-        this.describtion = "";
+      createTask(task) {
+        this.tasks.push(task);
+        console.log(task);
       },
     },
   };

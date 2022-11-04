@@ -2,13 +2,12 @@
   <form @submit.prevent class="createToDo">
     <h1>Ur Plans</h1>
     <input
-      :value="task.describtion"
-      @input="task.describtion = $event.target.value"
+      v-model="task.describtion"
       class="message"
       type="text"
       placeholder="What are u gonna do?"
     />
-    <button class="my-button">Plan It</button>
+    <button @click="createTask" class="my-button">Plan It</button>
   </form>
 </template>
 <script>
@@ -21,6 +20,15 @@
           important: false,
         },
       };
+    },
+    methods: {
+      createTask() {
+        this.task.id = Date.now();
+        this.$emit("create", this.task);
+        this.task = {
+          describtion: "",
+        };
+      },
     },
   };
 </script>

@@ -1,14 +1,16 @@
 <template lang="">
   <div>
-    <ul class="task" v-for="task in tasks">
-      <li>
-        {{ task.describtion }}
-      </li>
+    <ul>
+      <task-item :task="task" v-for="task in tasks"></task-item>
     </ul>
   </div>
 </template>
 <script>
+  import TaskItem from "@/components/TaskItem.vue";
   export default {
+    components: {
+      TaskItem,
+    },
     props: {
       tasks: {
         type: Array,
@@ -17,13 +19,4 @@
     },
   };
 </script>
-<style scoped>
-  .task {
-    padding-left: 0;
-  }
-
-  .task li {
-    padding: 1em;
-    list-style-type: none;
-  }
-</style>
+<style scoped></style>
