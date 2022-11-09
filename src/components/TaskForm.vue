@@ -7,23 +7,28 @@
       type="text"
       placeholder="What are u gonna do?"
     />
-    <button @click="createTask" class="my-button">Plan It</button>
+    <my-button @click="createTask">Plan It</my-button>
   </form>
 </template>
+
 <script>
+  import MyButton from "@/components/UI/MyButton.vue";
   export default {
+    components: {
+      MyButton,
+    },
     data() {
       return {
         task: {
           describtion: "",
-          checked: false,
-          important: false,
         },
       };
     },
     methods: {
       createTask() {
         this.task.id = Date.now();
+        this.task.cheked = false;
+        this.task.important = false;
         this.$emit("create", this.task);
         this.task = {
           describtion: "",
@@ -40,15 +45,7 @@
     width: 376px;
     padding: 10px;
   }
-  .my-button {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 10px;
-    width: 400px;
-    padding: 10px;
-    cursor: pointer;
-  }
+
   h1 {
     text-align: center;
   }
