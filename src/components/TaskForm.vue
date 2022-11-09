@@ -1,9 +1,8 @@
 <template lang="">
   <form @submit.prevent class="createToDo">
     <h1>Ur Plans</h1>
-    <input
+    <my-input
       v-model="task.describtion"
-      class="message"
       type="text"
       placeholder="What are u gonna do?"
     />
@@ -36,14 +35,6 @@
   };
 </script>
 <style scoped>
-  .message {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 376px;
-    padding: 10px;
-  }
-
   h1 {
     text-align: center;
   }
