@@ -1,8 +1,22 @@
 <template>
   <li class="task">
     <div>
-      <my-button class="my-button__doneIt">Done It</my-button>
-      <div>{{ task.describtion }}</div>
+      <my-button
+        v-if="this.task.cheked"
+        @click="$emit('crossOut', task)"
+        class="my-button__doneIt"
+        >Undone</my-button
+      >
+      <my-button
+        v-else
+        @click="$emit('crossOut', task)"
+        class="my-button__doneIt"
+        >Done It</my-button
+      >
+      <div v-if="this.task.cheked">
+        <s>{{ task.describtion }}</s>
+      </div>
+      <div v-else>{{ task.describtion }}</div>
     </div>
   </li>
 </template>
@@ -18,11 +32,7 @@
         required: true,
       },
     },
-    methods: {
-      setImportant() {
-        this.$emit("changeStatus", this.task.cheked);
-      },
-    },
+    methods: {},
   };
 </script>
 <style scoped>

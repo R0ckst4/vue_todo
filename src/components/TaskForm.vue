@@ -26,13 +26,15 @@
     },
     methods: {
       createTask() {
-        this.task.id = Date.now();
-        this.task.cheked = false;
-        this.task.important = false;
-        this.$emit("create", this.task);
-        this.task = {
-          describtion: "",
-        };
+        if (this.task.describtion) {
+          this.task.id = Date.now();
+          this.task.cheked = false;
+          this.task.important = false;
+          this.$emit("create", this.task);
+          this.task = {
+            describtion: "",
+          };
+        } else return;
       },
     },
   };

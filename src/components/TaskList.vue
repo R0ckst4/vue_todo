@@ -1,7 +1,12 @@
-<template lang="">
+<template>
   <div>
     <ul>
-      <task-item :task="task" v-for="task in tasks"></task-item>
+      <task-item
+        :task="task"
+        :key="task.id"
+        @crossOut="crossOutTask"
+        v-for="task in tasks"
+      ></task-item>
     </ul>
   </div>
 </template>
@@ -15,6 +20,12 @@
       tasks: {
         type: Array,
         required: true,
+      },
+    },
+    methods: {
+      crossOutTask(task) {
+        task["cheked"] = !task["cheked"];
+        console.log(task);
       },
     },
   };
