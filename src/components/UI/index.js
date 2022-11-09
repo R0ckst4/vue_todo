@@ -1,4 +1,2 @@
 import MyButton from "@/components/UI/MyButton.vue";
-export default {
-  MyButton,
-};
+export default [MyButton];
