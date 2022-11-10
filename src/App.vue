@@ -4,7 +4,11 @@
       <div class="mainBlock">
         <task-form @create="createTask"></task-form>
         <div class="wrapper">
-          <task-list :tasks="tasks" @remove="removeItem"></task-list>
+          <task-list
+            :tasks="tasks"
+            @crossOut="crossOutTask"
+            @remove="removeItem"
+          ></task-list>
         </div>
       </div>
     </div>
@@ -24,14 +28,32 @@
       };
     },
     methods: {
+      saveTasks() {
+        const parsed = JSON.stringify(this.tasks);
+        localStorage.setItem("tasks", parsed);
+      },
       createTask(task) {
         this.tasks.push(task);
+        this.saveTasks();
       },
       removeItem(task) {
         this.tasks = this.tasks.filter((t) => t.id !== task.id);
+        this.saveTasks();
+      },
+      crossOutTask(task) {
+        task["cheked"] = !task["cheked"];
+        this.saveTasks();
       },
     },
-    mounted() {},
+    mounted() {
+      if (localStorage.getItem("tasks")) {
+        try {
+          this.tasks = JSON.parse(localStorage.getItem("tasks"));
+        } catch (e) {
+          localStorage.removeItem("tasks");
+        }
+      }
+    },
     watch: {},
   };
 </script>

@@ -5,7 +5,7 @@
         :task="task"
         :key="task.id"
         @remove="$emit('remove', task)"
-        @crossOut="crossOutTask"
+        @crossOut="$emit('crossOut', task)"
         v-for="task in tasks"
       ></task-item>
     </ul>
@@ -26,11 +26,7 @@
         required: true,
       },
     },
-    methods: {
-      crossOutTask(task) {
-        task["cheked"] = !task["cheked"];
-      },
-    },
+    methods: {},
   };
 </script>
 <style scoped>
