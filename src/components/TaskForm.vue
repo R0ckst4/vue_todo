@@ -21,7 +21,7 @@
     },
     methods: {
       createTask() {
-        if (this.task.describtion) {
+        if (this.task.describtion && this.task.describtion.trim()) {
           this.task.id = Date.now();
           this.task.cheked = false;
           this.task.important = false;
@@ -29,7 +29,12 @@
           this.task = {
             describtion: "",
           };
-        } else return;
+        } else {
+          this.task = {
+            describtion: "",
+          };
+          return;
+        }
       },
     },
   };
