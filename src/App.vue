@@ -4,7 +4,7 @@
       <div class="mainBlock">
         <task-form @create="createTask"></task-form>
         <div class="wrapper">
-          <task-list :tasks="tasks"></task-list>
+          <task-list :tasks="tasks" @remove="removeItem"></task-list>
         </div>
       </div>
     </div>
@@ -26,9 +26,13 @@
     methods: {
       createTask(task) {
         this.tasks.push(task);
-        console.log(task);
+      },
+      removeItem(task) {
+        this.tasks = this.tasks.filter((t) => t.id !== task.id);
       },
     },
+    mounted() {},
+    watch: {},
   };
 </script>
 <style>

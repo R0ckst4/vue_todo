@@ -4,10 +4,14 @@
       <task-item
         :task="task"
         :key="task.id"
+        @remove="$emit('remove', task)"
         @crossOut="crossOutTask"
         v-for="task in tasks"
       ></task-item>
     </ul>
+  </div>
+  <div class="noTasks" v-show="tasks.length < 1">
+    &#8595; ur plans will be down here &#8595;
   </div>
 </template>
 <script>
@@ -25,9 +29,14 @@
     methods: {
       crossOutTask(task) {
         task["cheked"] = !task["cheked"];
-        console.log(task);
       },
     },
   };
 </script>
-<style scoped></style>
+<style scoped>
+  .noTasks {
+    margin-top: 10px;
+    padding: 25px;
+    text-align: center;
+  }
+</style>

@@ -1,6 +1,6 @@
 <template>
   <li class="task">
-    <div>
+    <div @contextmenu.prevent="$emit('remove', task)">
       <my-button
         v-if="this.task.cheked"
         @click="$emit('crossOut', task)"
