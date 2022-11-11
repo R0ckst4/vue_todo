@@ -9,7 +9,7 @@
     <my-button @click="createTask">Plan It</my-button>
     <div class="imp_checkbox">
       <input type="checkbox" id="important_checkbox" v-model="task.important" />
-      <label for id="important_checkbox"> important task</label>
+      <label for="important_checkbox"> important task</label>
     </div>
   </form>
 </template>
@@ -51,5 +51,33 @@
   .imp_checkbox {
     margin: 5px;
     text-align: center;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label::before {
+    content: "";
+    background: #ca3204;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+  }
+
+  input[type="checkbox"]:checked + label::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 5px;
+    border: solid #000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    border-radius: 0;
+    margin: 0 15px 5px 5px;
   }
 </style>

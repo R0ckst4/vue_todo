@@ -64,32 +64,7 @@
     color: rgb(138, 11, 11);
     text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.952);
   }
-  /* input[type="checkbox"] {
-     display: none;
-   }
-   input[type="checkbox"] + label::before {
-     content: "";
-     background: #9acd32;
-     border-radius: 5px;
-     border: 2px solid #ddd;
-     display: inline-block;
-     vertical-align: middle;
-     width: 10px;
-     height: 10px;
-     padding: 2px;
-     margin-right: 10px;
-     text-align: center;
-   }
-
-   input[type="checkbox"]:checked + label::before {
-     content: "";
-     display: inline-block;
-     width: 1px;
-     height: 5px;
-     border: solid #000;
-     border-width: 0 3px 3px 0;
-     transform: rotate(45deg);
-     border-radius: 0;
-     margin: 0 15px 5px 5px;
-   } */
+  input[type="checkbox"] {
+    display: none;
+  }
 </style>
