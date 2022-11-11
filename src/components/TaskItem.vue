@@ -1,8 +1,11 @@
 <template>
   <li class="task">
-    <div @contextmenu.prevent="$emit('remove', task)">
-      <my-button
-        v-if="this.task.cheked"
+    <div
+      @click="$emit('crossOut', task)"
+      @contextmenu.prevent="$emit('remove', task)"
+    >
+      <!-- <my-button
+        v-if="this.task.done"
         @click="$emit('crossOut', task)"
         class="my-button__doneIt"
         >Undone</my-button
@@ -12,11 +15,19 @@
         @click="$emit('crossOut', task)"
         class="my-button__doneIt"
         >Done It</my-button
-      >
-      <div v-if="this.task.cheked">
-        <s>{{ task.describtion }}</s>
+      > -->
+      <div v-if="this.task.important" class="important">
+        <div v-if="this.task.done">
+          <s>{{ task.describtion }}</s>
+        </div>
+        <div v-else>{{ task.describtion }}</div>
       </div>
-      <div v-else>{{ task.describtion }}</div>
+      <div v-else>
+        <div v-if="this.task.done">
+          <s>{{ task.describtion }}</s>
+        </div>
+        <div v-else>{{ task.describtion }}</div>
+      </div>
     </div>
   </li>
 </template>
@@ -48,6 +59,10 @@
     margin-top: -5px;
     padding: 10px;
     float: right;
+  }
+  .important {
+    color: rgb(138, 11, 11);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.952);
   }
   /* input[type="checkbox"] {
      display: none;

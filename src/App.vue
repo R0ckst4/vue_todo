@@ -33,7 +33,12 @@
         localStorage.setItem("tasks", parsed);
       },
       createTask(task) {
-        this.tasks.push(task);
+        if (task.important) {
+          this.tasks.unshift(task);
+        } else {
+          this.tasks.push(task);
+        }
+
         this.saveTasks();
       },
       removeItem(task) {
@@ -41,7 +46,7 @@
         this.saveTasks();
       },
       crossOutTask(task) {
-        task["cheked"] = !task["cheked"];
+        task["done"] = !task["done"];
         this.saveTasks();
       },
     },
