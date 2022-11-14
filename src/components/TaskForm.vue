@@ -10,12 +10,12 @@
     <div class="checkboxes">
       <my-checkbox id="imp_checkbox_inp" v-model="task.important" value="true">
       </my-checkbox>
-      <label style="margin-right: 10px" for="imp_checkbox_inp"
+      <label for="imp_checkbox_inp" style="margin-right: 10px; cursor: pointer"
         >important plan</label
       >
       <my-checkbox id="work_checkbox_inp" v-model="task.usual" value="false">
       </my-checkbox>
-      <label for="work_checkbox_inp">work plan</label>
+      <label for="work_checkbox_inp" style="cursor: pointer">work plan</label>
     </div>
   </form>
 </template>

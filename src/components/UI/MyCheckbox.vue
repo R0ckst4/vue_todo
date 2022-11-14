@@ -33,6 +33,7 @@
     margin-right: 10px;
     text-align: center;
     transition: 0.1s ease;
+    cursor: pointer;
   }
 
   input[type="checkbox"]:checked + label::before {

@@ -36,6 +36,7 @@
     border-bottom: 1px solid #000;
     word-wrap: break-word;
     list-style-type: none;
+    cursor: pointer;
   }
 
   .important {

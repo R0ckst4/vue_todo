@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <div class="sort_container">
+      <div v-show="tasks.length > 0" class="sort_container">
         <h3>Sort</h3>
         <sort-btn style="margin-top: -30px">Usual</sort-btn>
         <sort-btn style="margin-top: -30px">Work</sort-btn>
