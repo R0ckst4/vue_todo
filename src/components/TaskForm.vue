@@ -21,6 +21,7 @@
         task: {
           describtion: "",
           important: false,
+          usual: true,
         },
       };
     },

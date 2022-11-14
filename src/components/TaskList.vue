@@ -1,6 +1,7 @@
 <template>
   <div>
     <ul>
+      <my-sort v-show="tasks.length > 0"></my-sort>
       <transition-group name="task-list">
         <task-item
           :task="task"
@@ -33,7 +34,6 @@
 </script>
 <style scoped>
   .noTasks {
-    margin-top: 10px;
     padding: 25px;
     text-align: center;
   }
