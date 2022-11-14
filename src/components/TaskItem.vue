@@ -7,13 +7,13 @@
       <!-- <my-button
         v-if="this.task.done"
         @click="$emit('crossOut', task)"
-        class="my-button__doneIt"
+        class="btn__doneIt"
         >Undone</my-button
       >
       <my-button
         v-else
         @click="$emit('crossOut', task)"
-        class="my-button__doneIt"
+        class="btn__doneIt"
         >Done It</my-button
       > -->
       <div v-if="this.task.important" class="important">
@@ -32,11 +32,11 @@
   </li>
 </template>
 <script>
-  import MyButton from "@/components/UI/MyButton.vue";
+  // import MyButton from "@/components/UI/MyButton.vue";
   export default {
-    components: {
-      MyButton,
-    },
+    // components: {
+    //   MyButton,
+    // },
     props: {
       task: {
         type: Object,
@@ -53,13 +53,13 @@
     word-wrap: break-word;
     list-style-type: none;
   }
-  .my-button__doneIt {
+  /* .btn__doneIt {
     background-color: rgba(255, 255, 255, 0.26);
     width: auto;
     margin-top: -5px;
     padding: 10px;
     float: right;
-  }
+  } */
   .important {
     color: rgb(138, 11, 11);
     text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.952);
