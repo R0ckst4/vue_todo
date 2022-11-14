@@ -23,7 +23,7 @@
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.89);
+    background-color: rgba(255, 255, 255, 0.199);
     transition: 0.2s;
   }
   .message:hover {
@@ -32,5 +32,10 @@
   .message:focus {
     background-color: #ffe;
     outline: none;
+  }
+  ::placeholder {
+    text-align: center;
+    color: black;
+    opacity: 1;
   }
 </style>

@@ -11,7 +11,7 @@
 <style scoped>
   .my-button {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.89);
+    background-color: rgba(255, 255, 255, 0.199);
     flex-wrap: wrap;
     border: 0;
     justify-content: space-around;

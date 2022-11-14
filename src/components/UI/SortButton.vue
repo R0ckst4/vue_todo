@@ -1,31 +1,16 @@
 <template>
-  <div class="sort_container">
-    <h3>Sort</h3>
-    <button @click="showWorkTasks" class="btn__sort">Work</button>
-    <button @click="showUsualTasks" class="btn__sort">Usual</button>
-  </div>
+  <button class="btn__sort"><slot></slot></button>
 </template>
 <script>
   export default {
-    name: "my-sort",
+    name: "sort-btn",
   };
 </script>
 <style scoped>
-  .sort_container {
-    padding: 8px;
-  }
-
-  h3 {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    text-align: left;
-  }
   .btn__sort {
     background-color: rgba(255, 255, 255, 0.199);
     width: auto;
     margin: 5px;
-    margin-top: -32px;
     padding: 10px;
     float: right;
     display: flex;
