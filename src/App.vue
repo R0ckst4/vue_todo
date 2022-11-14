@@ -1,17 +1,19 @@
 <template>
   <div class="app">
-    <div class="container">
-      <div class="mainBlock">
-        <task-form @create="createTask"></task-form>
-        <div class="wrapper">
-          <task-list
-            :tasks="tasks"
-            @crossOut="crossOutTask"
-            @remove="removeItem"
-          ></task-list>
+    <transition-group name="container">
+      <div class="container">
+        <div class="mainBlock">
+          <task-form @create="createTask"></task-form>
+          <div class="wrapper">
+            <task-list
+              :tasks="tasks"
+              @crossOut="crossOutTask"
+              @remove="removeItem"
+            ></task-list>
+          </div>
         </div>
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 <script>

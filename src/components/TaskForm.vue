@@ -7,9 +7,15 @@
       placeholder="What are u gonna do?"
     />
     <my-button @click="createTask">Plan It</my-button>
-    <div class="imp_checkbox">
-      <input type="checkbox" id="important_checkbox" v-model="task.important" />
-      <label for="important_checkbox"> important task</label>
+    <div class="checkboxes">
+      <my-checkbox id="imp_checkbox_inp" v-model="task.important" value="true">
+      </my-checkbox>
+      <label style="margin-right: 10px" for="imp_checkbox_inp"
+        >important plan</label
+      >
+      <my-checkbox id="work_checkbox_inp" v-model="task.usual" value="false">
+      </my-checkbox>
+      <label for="work_checkbox_inp">work plan</label>
     </div>
   </form>
 </template>
@@ -20,8 +26,6 @@
       return {
         task: {
           describtion: "",
-          important: false,
-          usual: true,
         },
       };
     },
@@ -35,6 +39,8 @@
           this.task = {
             describtion: "",
           };
+          imp_checkbox_inp.checked = false;
+          work_checkbox_inp.checked = false;
         } else {
           this.task = {
             describtion: "",
@@ -49,36 +55,8 @@
   h1 {
     text-align: center;
   }
-  .imp_checkbox {
+  .checkboxes {
     margin: 5px;
     text-align: center;
-  }
-  input[type="checkbox"] {
-    display: none;
-  }
-  input[type="checkbox"] + label::before {
-    content: "";
-    background: #ca3204;
-    border-radius: 5px;
-    border: 2px solid #ddd;
-    display: inline-block;
-    vertical-align: middle;
-    width: 10px;
-    height: 10px;
-    padding: 2px;
-    margin-right: 10px;
-    text-align: center;
-  }
-
-  input[type="checkbox"]:checked + label::before {
-    content: "";
-    display: inline-block;
-    width: 1px;
-    height: 5px;
-    border: solid #000;
-    border-width: 0 4px 4px 0;
-    transform: rotate(45deg);
-    border-radius: 0;
-    margin: 0 15px 5px 5px;
   }
 </style>

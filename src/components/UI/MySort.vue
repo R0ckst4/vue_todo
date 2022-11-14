@@ -31,6 +31,7 @@
     display: flex;
     flex-wrap: wrap;
     border: 0;
+    border-radius: 10px;
     justify-content: space-around;
     cursor: pointer;
     transition: 0.2s ease;

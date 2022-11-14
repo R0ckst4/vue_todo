@@ -1,16 +1,11 @@
 <template>
-  <div :class="{ btn: noActivated }">
-    <button @click="noActivated = true" class="my-button"><slot></slot></button>
+  <div>
+    <button class="my-button"><slot></slot></button>
   </div>
 </template>
 <script>
   export default {
     name: "my-button",
-    data() {
-      return {
-        noActivated: false,
-      };
-    },
   };
 </script>
 <style scoped>
@@ -24,6 +19,7 @@
     width: 400px;
     padding: 10px;
     cursor: pointer;
+    border-radius: 10px;
     transition: 0.2s ease;
   }
   .my-button:hover {
