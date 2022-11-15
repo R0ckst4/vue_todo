@@ -65,14 +65,6 @@
   };
 </script>
 <style>
-  /* * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .task {
-    padding: 5px;
-  } */
   body {
     background-color: #ffe;
     font-family: "Roboto Mono", monospace, sans-serif;

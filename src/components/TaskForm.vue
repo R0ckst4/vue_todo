@@ -8,13 +8,12 @@
     />
     <my-button @click="createTask">Plan It</my-button>
     <div class="checkboxes">
-      <my-checkbox id="imp_checkbox_inp" v-model="task.important" value="true">
+      <my-checkbox id="imp_checkbox_inp" v-model="task.important">
       </my-checkbox>
       <label for="imp_checkbox_inp" style="margin-right: 10px; cursor: pointer"
         >important plan</label
       >
-      <my-checkbox id="work_checkbox_inp" v-model="task.usual" value="false">
-      </my-checkbox>
+      <my-checkbox id="work_checkbox_inp" v-model="task.isWork"> </my-checkbox>
       <label for="work_checkbox_inp" style="cursor: pointer">work plan</label>
     </div>
   </form>
@@ -26,6 +25,8 @@
       return {
         task: {
           describtion: "",
+          important: false,
+          isWork: false,
         },
       };
     },

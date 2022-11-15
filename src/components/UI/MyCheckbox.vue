@@ -1,7 +1,7 @@
 <template>
   <input
-    :value="modelValue"
-    @input="updateCheckbox"
+    :checked="modelValue"
+    @change="updateCheckbox"
     class="checkbox"
     type="checkbox"
   />
@@ -9,9 +9,17 @@
 <script>
   export default {
     name: "my-checkbox",
+    props: {
+      modelValue: [Boolean],
+      task: {
+        type: Object,
+        required: true,
+      },
+    },
     methods: {
       updateCheckbox(event) {
-        this.$emit("update:modelValue", event.target.value);
+        console.log(event);
+        this.$emit("update:modelValue", event.target.checked);
       },
     },
   };

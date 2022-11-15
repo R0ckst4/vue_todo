@@ -3,9 +3,13 @@
     <ul>
       <div v-show="tasks.length > 0" class="sort_container">
         <h3>Sort</h3>
-        <sort-btn style="margin-top: -30px">Usual</sort-btn>
-        <sort-btn style="margin-top: -30px">Work</sort-btn>
-        <sort-btn style="margin-top: -30px">All</sort-btn>
+        <sort-btn @click="showUsualPlans" style="margin-top: -30px"
+          >Usual</sort-btn
+        >
+        <sort-btn @click="showWorkPlans" style="margin-top: -30px"
+          >Work</sort-btn
+        >
+        <sort-btn @click="showAllPlans" style="margin-top: -30px">All</sort-btn>
       </div>
       <transition-group name="task-list">
         <task-item
@@ -35,6 +39,7 @@
       },
     },
     methods: {},
+    computed: {},
   };
 </script>
 <style scoped>
