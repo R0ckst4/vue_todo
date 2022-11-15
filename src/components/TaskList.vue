@@ -1,16 +1,6 @@
 <template>
   <div>
     <ul>
-      <div v-show="tasks.length > 0" class="sort_container">
-        <h3>Sort</h3>
-        <sort-btn @click="showUsualPlans" style="margin-top: -30px"
-          >Usual</sort-btn
-        >
-        <sort-btn @click="showWorkPlans" style="margin-top: -30px"
-          >Work</sort-btn
-        >
-        <sort-btn @click="showAllPlans" style="margin-top: -30px">All</sort-btn>
-      </div>
       <transition-group name="task-list">
         <task-item
           :task="task"
@@ -43,17 +33,6 @@
   };
 </script>
 <style scoped>
-  .sort_container {
-    margin-top: 10px;
-    padding: 8px;
-  }
-
-  h3 {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    text-align: left;
-  }
   .noTasks {
     padding: 25px;
     text-align: center;
