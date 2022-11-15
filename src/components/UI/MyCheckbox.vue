@@ -22,7 +22,7 @@
   }
   input[type="checkbox"] + label::before {
     content: "";
-    background: #ca3305;
+    background: #ca330588;
     border-radius: 5px;
     border: 2px solid #ddd;
     display: inline-block;
@@ -47,5 +47,8 @@
     border-radius: 0px;
     margin: 0 15px 5px 5px;
     transition: 0.1s ease;
+  }
+  input[type="checkbox"]:hover + label::before {
+    background: #ee3c05;
   }
 </style>
