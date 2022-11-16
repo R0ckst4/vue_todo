@@ -19,12 +19,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 380px;
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.199);
     transition: 0.2s;
+    box-sizing: border-box;
   }
   .message:hover {
     background-color: #ffe;

@@ -16,11 +16,12 @@
     border: 0;
     justify-content: space-around;
     margin-top: 10px;
-    width: 400px;
+    width: 100%;
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
     transition: 0.2s ease;
+    box-sizing: border-box;
   }
   .my-button:hover {
     background-color: #ffe;
