@@ -1,28 +1,35 @@
 <template>
   <div class="app">
     <div class="container">
-      <div class="mainBlock">
-        <task-form @create="createTask"></task-form>
-        <div class="wrapper">
-          <div v-show="tasks.length > 0" class="sort_container">
-            <h3>Sort</h3>
-            <sort-btn @click="sortOption = 'usual'" style="margin-top: -30px"
-              >Usual</sort-btn
-            >
-            <sort-btn @click="sortOption = 'work'" style="margin-top: -30px"
-              >Work</sort-btn
-            >
-            <sort-btn @click="sortOption = 'all'" style="margin-top: -30px"
-              >All</sort-btn
-            >
+      <transition name="main-block">
+        <div class="mainBlock">
+          <task-form @create="createTask"></task-form>
+          <div class="wrapper">
+            <transition name="sort-container">
+              <div v-show="tasks.length > 0" class="sort_container">
+                <h3>Sort</h3>
+                <sort-btn
+                  @click="sortOption = 'usual'"
+                  style="margin-top: -30px"
+                  >Usual</sort-btn
+                >
+                <sort-btn @click="sortOption = 'work'" style="margin-top: -30px"
+                  >Work</sort-btn
+                >
+                <sort-btn @click="sortOption = 'all'" style="margin-top: -30px"
+                  >All</sort-btn
+                >
+              </div>
+            </transition>
+
+            <task-list
+              :tasks="sortedTasks"
+              @crossOut="crossOutTask"
+              @remove="removeItem"
+            ></task-list>
           </div>
-          <task-list
-            :tasks="sortedTasks"
-            @crossOut="crossOutTask"
-            @remove="removeItem"
-          ></task-list>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -117,5 +124,18 @@
     padding: 0;
     display: flex;
     text-align: left;
+  }
+  .sort-container-enter-active {
+    transition: all 0.2s ease 0.2s;
+  }
+
+  .sort-container-leave-active {
+    transition: all 0.2s ease;
+  }
+
+  .sort-container-enter-from,
+  .sort-container-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
   }
 </style>

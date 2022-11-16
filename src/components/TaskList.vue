@@ -12,9 +12,11 @@
       </transition-group>
     </ul>
   </div>
-  <div class="noTasks" v-show="tasks.length < 1">
-    &#8595; ur plans will be down here &#8595;
-  </div>
+  <transition name="no-task" mode="out-in">
+    <div class="noTasks" v-show="tasks.length < 1">
+      &#8595; ur plans will be down here &#8595;
+    </div>
+  </transition>
 </template>
 <script>
   import TaskItem from "@/components/TaskItem.vue";
@@ -52,5 +54,16 @@
   }
   .task-list-move {
     transition: transform 0.2s ease;
+  }
+  .no-task-enter-active {
+    transition: opacity 1s ease;
+  }
+  .no-task-leave-active {
+    transition: opacity 0.5s ease 0.1s;
+  }
+
+  .no-task-enter-from,
+  .no-task-leave-to {
+    opacity: 0;
   }
 </style>
