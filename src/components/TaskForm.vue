@@ -3,9 +3,7 @@
     <h1>Ur Plans</h1>
     <div class="input_with_button">
       <div class="dropdown_btn">
-        <button class="tg_bot_btn" @click="getTasksFromBot">
-          Last msg from tg
-        </button>
+        <sort-btn @click="getTasksFromBot"> Last msg from tg </sort-btn>
       </div>
       <my-input
         v-model="task.describtion"
@@ -82,34 +80,19 @@
     margin: 5px;
     text-align: center;
   }
-
-  .tg_bot_btn {
-    background-color: rgba(255, 255, 255, 0.199);
-    width: auto;
-    margin: 5px;
-    padding: 10px;
-    float: right;
-    display: flex;
-    flex-wrap: wrap;
-    border: 0;
-    border-radius: 10px;
-    justify-content: space-around;
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-  .dropdown_btn {
-    display: none;
-    position: absolute;
-    right: 70px;
-    top: 79px;
-    background-color: #ffaa00c9;
-    border-radius: 10px;
-  }
-  .dropdown_btn button:hover {
-    float: right;
-    background-color: #ffe;
+  .input_with_button {
+    margin-top: -45px;
+    box-sizing: border-box;
+    transition: 1s;
   }
   .input_with_button:hover .dropdown_btn {
-    display: block;
+    opacity: 1;
+    transition: 0.2s;
+  }
+
+  .dropdown_btn {
+    padding: 12px 16px;
+    opacity: 0;
+    transition: 1s;
   }
 </style>
