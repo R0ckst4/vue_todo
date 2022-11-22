@@ -100,6 +100,7 @@
     background-color: #ffe;
     font-family: "Roboto Mono", monospace, sans-serif;
     box-sizing: content-box;
+    cursor: default;
   }
 
   .countainer {
