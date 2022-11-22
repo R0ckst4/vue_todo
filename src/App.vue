@@ -36,6 +36,7 @@
 <script>
   import TaskForm from "@/components/TaskForm.vue";
   import TaskList from "@/components/TaskList.vue";
+  import axios from "axios";
   export default {
     components: {
       TaskForm,
@@ -45,6 +46,7 @@
       return {
         tasks: [],
         sortOption: "",
+        botTasksList: [],
       };
     },
     methods: {

@@ -1,3 +1,5 @@
+// NOT USED
+
 const TelegramApi = require("node-telegram-bot-api");
 
 const token = "5792008606:AAE6Acx7xr1DIwB2LOYigRRE9as_0KzTbto";
@@ -27,7 +29,8 @@ bot.on("message", (msg) => {
           `Вот список добавленных задач ${JSON.stringify(botTodoList)}`
         )
       : bot.sendMessage(chatId, "Нет задач");
-    console.log(botTodoList);
+
+    console.log(msg);
   }
   if (text === "/deletelast") {
     botTodoList.length
@@ -56,3 +59,4 @@ bot.on("message", (msg) => {
     );
   }
 });
+// NOT USED
