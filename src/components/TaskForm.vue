@@ -60,11 +60,14 @@
       async getTasksFromBot() {
         const TOKEN = "5891757124:AAHWnZwy94vR7_2xUpx8r9OgMoFhXPAPTXM";
         const URI_API = `https://api.telegram.org/bot${TOKEN}/getUpdates`;
+        const CHAT_ID = "374779952";
         try {
           const response = await axios.get(URI_API);
           let lastMessage =
             response.data.result[response.data.result.length - 1].message;
-          this.task.describtion = lastMessage.text;
+          if (lastMessage.chat.id === +CHAT_ID) {
+            this.task.describtion = lastMessage.text;
+          } else console.log(lastMessage.chat.id);
         } catch (e) {
           console.log("ERROR");
         }
