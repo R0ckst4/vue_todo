@@ -8,6 +8,9 @@
             <transition name="sort-container">
               <div v-show="tasks.length > 0" class="sort_container">
                 <h3>Sort</h3>
+                <sort-btn @click="sortOption = 'bot'" style="margin-top: -30px"
+                  >Bot</sort-btn
+                >
                 <sort-btn
                   @click="sortOption = 'usual'"
                   style="margin-top: -30px"
@@ -87,6 +90,8 @@
           return [...this.tasks].filter((task) => task.isWork === true);
         } else if (this.sortOption === "usual") {
           return [...this.tasks].filter((task) => task.isWork !== true);
+        } else if (this.sortOption === "bot") {
+          return [...this.tasks].filter((task) => task.isBotTask === true);
         } else {
           return this.tasks;
         }

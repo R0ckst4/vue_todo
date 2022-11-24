@@ -57,6 +57,7 @@
           return;
         }
       },
+
       async getTasksFromBot() {
         const TOKEN = "5891757124:AAHWnZwy94vR7_2xUpx8r9OgMoFhXPAPTXM";
         const URI_API = `https://api.telegram.org/bot${TOKEN}/getUpdates`;
@@ -66,8 +67,13 @@
           let lastMessage =
             response.data.result[response.data.result.length - 1].message;
           if (lastMessage.chat.id === +CHAT_ID) {
-            this.task.describtion = lastMessage.text;
-          } else console.log(lastMessage.chat.id);
+            this.task = {
+              describtion: lastMessage.text,
+              isBotTask: true,
+            };
+
+            this.createTask();
+          } else return null;
         } catch (e) {
           console.log("ERROR");
         }
