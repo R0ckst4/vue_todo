@@ -66,7 +66,7 @@
           const response = await axios.get(URI_API);
           let lastMessage =
             response.data.result[response.data.result.length - 1].message;
-          if (lastMessage.chat.id === +CHAT_ID) {
+          if (lastMessage.chat.id === +CHAT_ID && lastMessage.text[0] !== "/") {
             this.task = {
               describtion: lastMessage.text,
               isBotTask: true,
