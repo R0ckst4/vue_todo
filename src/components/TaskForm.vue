@@ -3,7 +3,7 @@
     <h1>Ur Plans</h1>
     <div class="input_with_button">
       <div class="dropdown_btn">
-        <sort-btn @click="getTasksFromBot"> Last msg from tg </sort-btn>
+        <sort-btn @click="getTasksFromBot">last messages from tg </sort-btn>
       </div>
       <my-input
         v-model="task.describtion"
@@ -35,13 +35,16 @@
           describtion: "",
           important: false,
           isWork: false,
+          coef: 1,
         },
       };
     },
     methods: {
       createTask() {
         if (this.task.describtion && this.task.describtion.trim()) {
-          this.task.id = Date.now();
+          this.task.id = this.task.coef
+            ? this.task.coef + Date.now()
+            : Date.now();
           this.task.done = false;
 
           this.$emit("create", this.task);
@@ -64,18 +67,24 @@
         const CHAT_ID = "374779952";
         try {
           const response = await axios.get(URI_API);
-          let lastMessage =
-            response.data.result[response.data.result.length - 1].message;
-          if (lastMessage.chat.id === +CHAT_ID && lastMessage.text[0] !== "/") {
-            this.task = {
-              describtion: lastMessage.text,
-              isBotTask: true,
-            };
-
-            this.createTask();
-          } else return null;
+          for (let i = 1; i < 4; i++) {
+            let lastMessage =
+              response.data.result[response.data.result.length - i].message;
+            if (
+              lastMessage.chat.id === +CHAT_ID &&
+              lastMessage.text[0] !== "/"
+            ) {
+              this.task = {
+                describtion: lastMessage.text,
+                isBotTask: true,
+                coef: i,
+              };
+              this.createTask();
+            } else console.log(response);
+          }
         } catch (e) {
           console.log("ERROR");
+          console.log(URI_API);
         }
       },
     },
